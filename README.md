@@ -1,5 +1,9 @@
-IPWA - Interner Pflegewissen-Assitent
-=====================================
+# IPWA - Interner Pflegewissen-Assitent
 
-Frontend: React
-Backend: Node.js (express)
+# Frontend:
+
+React
+
+# Backend:
+
+Node.js (express)

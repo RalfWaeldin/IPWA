@@ -1,0 +1,10 @@
+MONGO_URI=mongodb:<mongodb url with credentials>
+DB_NAME=<name of the mongo db database> 
+
+PORT= <backend port>
+
+OPEN_ROUTER_API_KEY=<Open Router Key>
+ROUTER_TRACING_DISABLED=true
+
+INTERVIEW_MAINMODEL=<used ai model for interview>
+CLASSIFICATION_MAINMODEL=<used model for classification>
