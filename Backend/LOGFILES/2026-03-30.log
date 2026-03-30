@@ -1,0 +1,145 @@
+CHROME:
+[Info]  [200] [2026-03-30T14:24:41.598Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T14:24:41.645Z] [POST]     | Verified Login User: root@ipwa.org | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T14:24:41.646Z] [POST]     | Try to set Access Token as Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODA2ODEsImV4cCI6MTc3NDg4MjQ4MX0.FeXYcT_yjdxJDxTrDjy19CWZwYWg77uKPfcBI8uRVCU | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T14:24:41.646Z] [POST]     | Access Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODA2ODEsImV4cCI6MTc3NDg4MjQ4MX0.FeXYcT_yjdxJDxTrDjy19CWZwYWg77uKPfcBI8uRVCU" | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T14:24:41.646Z] [POST]     | Access Token set successfully as Cookie | authenticationController/setAuthCookies | /auth/login
+EDGE:
+[Info]  [200] [2026-03-30T14:25:13.012Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T14:25:13.059Z] [POST]     | Verified Login User: root@ipwa.org | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T14:25:13.060Z] [POST]     | Access Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODA3MTMsImV4cCI6MTc3NDg4MjUxM30.OlQjgXhAykpAkiQ-14BSXCOvOBk-DSSHmNhixAwZzDw" | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T14:25:13.060Z] [POST]     | Try to set Access Token as Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODA3MTMsImV4cCI6MTc3NDg4MjUxM30.OlQjgXhAykpAkiQ-14BSXCOvOBk-DSSHmNhixAwZzDw | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T14:25:13.060Z] [POST]     | Access Token set successfully as Cookie | authenticationController/setAuthCookies | /auth/login
+FIREFOX:
+[Info]  [200] [2026-03-30T14:25:38.681Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T14:25:38.725Z] [POST]     | Verified Login User: root@ipwa.org | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T14:25:38.726Z] [POST]     | Access Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODA3MzgsImV4cCI6MTc3NDg4MjUzOH0.nlDjqVqMK5vemJKGEixQEeeqL6IAtP2b5p1i95Qag7s" | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T14:25:38.726Z] [POST]     | Try to set Access Token as Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODA3MzgsImV4cCI6MTc3NDg4MjUzOH0.nlDjqVqMK5vemJKGEixQEeeqL6IAtP2b5p1i95Qag7s | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T14:25:38.726Z] [POST]     | Access Token set successfully as Cookie | authenticationController/setAuthCookies | /auth/login
+INCORRECT Credetials:
+Firefox:
+[Info]  [200] [2026-03-30T14:53:02.223Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Error] [200] [2026-03-30T14:53:02.271Z] [POST]     | Incorrect credentials | login (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:93:23) | /auth/login
+[Info]  [200] [2026-03-30T14:58:19.655Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T14:58:19.655Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T14:58:19.655Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T14:58:19.656Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T14:58:19.656Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T14:58:19.656Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T14:59:20.527Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T14:59:20.526Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T14:59:20.530Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T14:59:20.530Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T14:59:20.528Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Error] [200] [2026-03-30T14:59:20.530Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Error] [200] [2026-03-30T14:59:53.145Z] [POST]     | ✖ Too big: expected string to have <=12 characters
+  → at password | password | /auth/login
+[Info]  [200] [2026-03-30T15:01:12.571Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Error] [200] [2026-03-30T15:01:12.575Z] [POST]     | User not found | login (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:89:20) | /auth/login
+[Info]  [200] [2026-03-30T15:01:45.691Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:01:45.736Z] [POST]     | Verified Login User: root@ipwa.org | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:01:45.738Z] [POST]     | Access Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODI5MDUsImV4cCI6MTc3NDg4NDcwNX0.eoumFmUMQvlhaJlCAqfEp1SE1eOsaiMtAkSYD2AAG5Y" | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:01:45.738Z] [POST]     | Try to set Access Token as Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODI5MDUsImV4cCI6MTc3NDg4NDcwNX0.eoumFmUMQvlhaJlCAqfEp1SE1eOsaiMtAkSYD2AAG5Y | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:01:45.739Z] [POST]     | Access Token set successfully as Cookie | authenticationController/setAuthCookies | /auth/login
+[Error] [200] [2026-03-30T15:01:45.739Z] [POST]     | Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property 'parser' -> object with constructor 'HTTPParser'
+    --- property 'socket' closes the circle | object with constructor 'Socket' | /auth/login
+[Info]  [200] [2026-03-30T15:04:46.470Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:04:46.470Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:04:46.470Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T15:04:46.474Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:04:46.474Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:04:46.474Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T15:08:32.777Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:08:32.777Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:08:32.778Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T15:08:32.781Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:08:32.781Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:08:32.781Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T15:12:08.452Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:12:08.499Z] [POST]     | Verified Login User: root@ipwa.org | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:12:08.501Z] [POST]     | Access Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODM1MjgsImV4cCI6MTc3NDg4NTMyOH0.NpWPcnSjDfYJN-Opga_gOS92-HiZZqah3a1nLrv1x44" | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:12:08.501Z] [POST]     | Try to set Access Token as Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODM1MjgsImV4cCI6MTc3NDg4NTMyOH0.NpWPcnSjDfYJN-Opga_gOS92-HiZZqah3a1nLrv1x44 | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:12:08.501Z] [POST]     | Access Token set successfully as Cookie | authenticationController/setAuthCookies | /auth/login
+[Error] [200] [2026-03-30T15:12:08.502Z] [POST]     | Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property 'parser' -> object with constructor 'HTTPParser'
+    --- property 'socket' closes the circle | object with constructor 'Socket' | /auth/login
+[Info]  [200] [2026-03-30T15:15:38.188Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:15:38.236Z] [POST]     | Verified Login User: root@ipwa.org | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:15:38.237Z] [POST]     | Try to set Access Token as Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODM3MzgsImV4cCI6MTc3NDg4NTUzOH0.hMDyBFOLu_OY3LuxI-POdkxrC5LCn4apxyHPiHaG60o | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:15:38.237Z] [POST]     | Access Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODM3MzgsImV4cCI6MTc3NDg4NTUzOH0.hMDyBFOLu_OY3LuxI-POdkxrC5LCn4apxyHPiHaG60o" | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:15:38.238Z] [POST]     | Access Token set successfully as Cookie | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:15:38.251Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:15:38.251Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:15:38.251Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T15:15:56.003Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:15:56.003Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:15:56.004Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T15:15:56.004Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:15:56.004Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:15:56.005Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T15:16:06.046Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:16:06.089Z] [POST]     | Verified Login User: root@ipwa.org | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:16:06.090Z] [POST]     | Access Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODM3NjYsImV4cCI6MTc3NDg4NTU2Nn0.-UMkIXyP_KiJTTzH28wsLeUeJur_5oRatbwf0P-pxBE" | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:16:06.090Z] [POST]     | Try to set Access Token as Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODM3NjYsImV4cCI6MTc3NDg4NTU2Nn0.-UMkIXyP_KiJTTzH28wsLeUeJur_5oRatbwf0P-pxBE | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:16:06.090Z] [POST]     | Access Token set successfully as Cookie | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:16:06.096Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:16:06.096Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:16:06.097Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T15:18:33.580Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:18:33.623Z] [POST]     | Verified Login User: root@ipwa.org | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:18:33.624Z] [POST]     | Access Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODM5MTMsImV4cCI6MTc3NDg4NTcxM30.s3lg5lsKZMSNZ0ycgSE7K2FYpiY4z9jufCRErTplJzQ" | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:18:33.624Z] [POST]     | Try to set Access Token as Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODM5MTMsImV4cCI6MTc3NDg4NTcxM30.s3lg5lsKZMSNZ0ycgSE7K2FYpiY4z9jufCRErTplJzQ | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:18:33.624Z] [POST]     | Access Token set successfully as Cookie | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:19:50.181Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:19:50.182Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:55:11) | /auth/me
+[Info]  [200] [2026-03-30T15:19:50.181Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:24:15.959Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:24:15.959Z] [GET]      | Request [object Object] | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:24:15.960Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:24:15.960Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:57:11) | /auth/me
+[Info]  [200] [2026-03-30T15:24:15.963Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:24:15.963Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:24:15.963Z] [GET]      | Request [object Object] | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:24:15.963Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:57:11) | /auth/me
+[Info]  [200] [2026-03-30T15:25:29.898Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:25:29.900Z] [GET]      | Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property 'parser' -> object with constructor 'HTTPParser'
+    --- property 'socket' closes the circle | object with constructor 'Socket' | /auth/me
+[Info]  [200] [2026-03-30T15:25:29.902Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:25:29.902Z] [GET]      | Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property 'parser' -> object with constructor 'HTTPParser'
+    --- property 'socket' closes the circle | object with constructor 'Socket' | /auth/me
+[Info]  [200] [2026-03-30T15:26:38.634Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:26:38.636Z] [GET]      | Cannot convert object to primitive value | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:46:20) | /auth/me
+[Info]  [200] [2026-03-30T15:26:38.638Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:26:38.639Z] [GET]      | Cannot convert object to primitive value | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:46:20) | /auth/me
+[Info]  [200] [2026-03-30T15:27:30.636Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:27:30.637Z] [GET]      | Request {} | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:27:30.637Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:27:30.638Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:62:11) | /auth/me
+[Info]  [200] [2026-03-30T15:27:30.640Z] [GET]      | Request {} | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:27:30.640Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:27:30.640Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:62:11) | /auth/me
+[Info]  [200] [2026-03-30T15:27:30.640Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:31:51.487Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:31:51.487Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:31:51.488Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:62:11) | /auth/me
+[Info]  [200] [2026-03-30T15:31:51.487Z] [GET]      | Request {} | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:31:51.489Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:31:51.489Z] [GET]      | Request {} | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:31:51.489Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:31:51.490Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:62:11) | /auth/me
+[Info]  [200] [2026-03-30T15:32:09.757Z] [POST]     | Enter Login | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:32:09.813Z] [POST]     | Verified Login User: root@ipwa.org | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:32:09.816Z] [POST]     | Access Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODQ3MjksImV4cCI6MTc3NDg4NjUyOX0.U6QTqjvh5KMSt_ybvCOpaPbSxbqYo97cs2sgM5kDB1U" | authenticationController/login | /auth/login
+[Info]  [200] [2026-03-30T15:32:09.816Z] [POST]     | Try to set Access Token as Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWM5NGUxYzZmNjg3MTY3OTgyNTI2ODciLCJyb2xlcyI6InJvb3QiLCJpYXQiOjE3NzQ4ODQ3MjksImV4cCI6MTc3NDg4NjUyOX0.U6QTqjvh5KMSt_ybvCOpaPbSxbqYo97cs2sgM5kDB1U | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:32:09.816Z] [POST]     | Access Token set successfully as Cookie | authenticationController/setAuthCookies | /auth/login
+[Info]  [200] [2026-03-30T15:32:09.830Z] [GET]      | Request {} | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:32:09.830Z] [GET]      | Enter Me | authenticationController/me | /auth/me
+[Info]  [200] [2026-03-30T15:32:09.830Z] [GET]      | accessToken requested: undefined | authenticationController/me | /auth/me
+[Error] [200] [2026-03-30T15:32:09.830Z] [GET]      | Access token is required | me (file:///D:/Projekte/WBS/Interner_Pflege_Wissens_Assistent/Backend/src/controllers/authenticationController.ts:62:11) | /auth/me
