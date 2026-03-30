@@ -9,6 +9,11 @@ const envSchema = z.object({
   ROUTER_TRACING_DISABLED: z.coerce.boolean().default(true),
   INTERVIEW_MAINMODEL: z.string().default("google/gemini-3-flash-preview"),
   CLASSIFICATION_MAINMODEL: z.string().default("google/gemini-3-flash-preview"),
+  ACCESS_JWT_SECRET: z.string(),
+  SALT_ROUNDS: z.string().default("10"),
+  LOGLEVEL: z.coerce.number().default(0),
+  LOGFILEDIR: z.string().default("LOGFILES"),
+  CLIENT_BASE_URL: z.url().default("http://localhost:5173"),
 });
 
 const parsedEnv = envSchema.safeParse(process.env);
@@ -30,4 +35,9 @@ export const {
   ROUTER_TRACING_DISABLED,
   INTERVIEW_MAINMODEL,
   CLASSIFICATION_MAINMODEL,
+  ACCESS_JWT_SECRET,
+  SALT_ROUNDS,
+  LOGLEVEL,
+  LOGFILEDIR,
+  CLIENT_BASE_URL,
 } = parsedEnv.data;
