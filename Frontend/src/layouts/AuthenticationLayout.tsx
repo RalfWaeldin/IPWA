@@ -1,15 +1,11 @@
 import { Outlet, Navigate } from "react-router";
 import { use } from "react";
-import { AuthenticationContext } from "@/context/AuthenticationContext";
+import { useAuthentication } from "@/context";
 
 const AuthenticationLayout = () => {
-  const authContext = use(AuthenticationContext);
+  const { signedIn } = useAuthentication();
 
-  const isAuthenticated = authContext?.locked ? false : true;
-
-  console.log("AUTH", isAuthenticated);
-
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+  return signedIn ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default AuthenticationLayout;

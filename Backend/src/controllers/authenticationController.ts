@@ -122,7 +122,12 @@ export const login: RequestHandler = async (req, res) => {
 export const logout: RequestHandler = async (req, res) => {
   writeLogFileEntry("Enter Logout", res, 2, "authenticationController/logout");
   res.clearCookie("accessToken");
-
+  writeLogFileEntry(
+    "Access token cleared",
+    res,
+    2,
+    "authenticationController/logout",
+  );
   res.status(200).json({ message: "Successfully logged out" });
 };
 
