@@ -60,7 +60,7 @@ function createLogLine(
     contentType == "string"
       ? location
       : content
-        ? (content as Error).stack.split("\n")[1].split("at ")[1]
+        ? (content as Error).stack?.split("\n")[1]?.split("at ")[1]
         : "no location";
 
   const orgurl = res.req.originalUrl;
