@@ -3,7 +3,12 @@ import type { ErrorRequestHandler } from "express";
 import express from "express";
 import { type Request } from "express";
 import { PORT } from "#config";
-import { agentRoutes, authenticationRoutes } from "#routes";
+import {
+  agentRoutes,
+  authenticationRoutes,
+  dbRoutes,
+  requestRoutes,
+} from "#routes";
 import { ErrorHandler } from "#utils";
 import "#db";
 import cookieParser from "cookie-parser";
@@ -27,6 +32,8 @@ app.use(((err, _req, res, _next) => {
 
 app.use("/agents", agentRoutes);
 app.use("/auth", authenticationRoutes);
+app.use("/requests", requestRoutes);
+app.use("/db", dbRoutes);
 
 app.get("/", (_req, res) => {
   res.json({ message: "IPWA Backend is running" });
