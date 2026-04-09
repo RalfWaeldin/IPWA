@@ -35,7 +35,6 @@ export default function UserIcon(props: UserIconProperties) {
               stroke: colors.border,
               strokeWidth: calculatedstrokewidth,
             }}
-            //style="fill:none;stroke:#0000d4;stroke-width:2.5;stroke-dasharray:none"
             id="path1"
             cx="60.363636"
             cy="60.099174"
@@ -45,7 +44,6 @@ export default function UserIcon(props: UserIconProperties) {
           <path
             id="path2"
             style={{ fill: colors.icon, stroke: "None" }}
-            //style="fill:#0000d4;stroke:none;stroke-width:2.5;stroke-dasharray:none"
             d="m 60,25.263672 a 15,15 0 0 0 -15,15 15,15 0 0 0 15,15 15,15 0 0 0 15,-15 15,15 0 0 0 -15,-15 z m 0,32.86914 a 30,10 0 0 0 -30,10 30,10 0 0 0 0.0332,0.476563 C 30.010692,68.802677 30,68.999681 30,69.199219 v 20 c 0,2.77 2.23,5 5,5 h 50 c 2.77,0 5,-2.23 5,-5 v -20 c 0,-0.199538 -0.01069,-0.396542 -0.0332,-0.589844 A 30,10 0 0 0 90,68.132812 a 30,10 0 0 0 -30,-10 z"
           />
         </g>
@@ -53,35 +51,3 @@ export default function UserIcon(props: UserIconProperties) {
     </>
   );
 }
-
-/*
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="112.5"
-   height="112.5"
-   viewBox="0 0 112.5 112.5"
-   version="1.1"
-   id="svg1"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  
-    <circle
-       style="fill:none;stroke:#0000d4;stroke-width:2.5;stroke-dasharray:none"
-       id="path1"
-       cx="60.363636"
-       cy="60.099174"
-       r="55" />
-    <path
-       id="path2"
-       style="fill:#0000d4;stroke:none;stroke-width:2.5;stroke-dasharray:none"
-       d="m 60,25.263672 a 15,15 0 0 0 -15,15 15,15 0 0 0 15,15 15,15 0 0 0 15,-15 15,15 0 0 0 -15,-15 z m 0,32.86914 a 30,10 0 0 0 -30,10 30,10 0 0 0 0.0332,0.476563 C 30.010692,68.802677 30,68.999681 30,69.199219 v 20 c 0,2.77 2.23,5 5,5 h 50 c 2.77,0 5,-2.23 5,-5 v -20 c 0,-0.199538 -0.01069,-0.396542 -0.0332,-0.589844 A 30,10 0 0 0 90,68.132812 a 30,10 0 0 0 -30,-10 z" />
-  </g>
-</svg>
-
-
-
-*/
