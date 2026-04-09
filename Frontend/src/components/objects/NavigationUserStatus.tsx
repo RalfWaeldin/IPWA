@@ -9,21 +9,26 @@ export default function NavigationUserStatus() {
     <>
       {signedIn ? (
         <div className="dropdown">
-          <div tabindex="0" role="button" className="btn btn-ghost btn-circle">
-            <div id="userMessage" className="flex flex-col">
-              <div className="flex place-content-center">
-                <UserIcon
-                  width="20"
-                  height="20"
-                  innersize="30"
-                  colors={{ border: "#0000ff", icon: "#0000ff" }}
-                />
-              </div>
-              <div className="text-[8px] text-[#0000ff]">
-                {user?.firstName} {user?.lastName}
-              </div>
+          <div
+            tabindex="0"
+            id="userMessage"
+            className="flex flex-row hover:bg-[#99eeff] pb-1 px-1"
+          >
+            <div className="flex place-content-center mr-1">
+              <UserIcon
+                width="20"
+                height="20"
+                innersize="30"
+                colors={{ border: "#0099ff", icon: "#00ddff" }}
+              />
+            </div>
+            <div className="text-[8px] text-cyan-500 text-left leading-[10px]">
+              {user?.firstName}
+              <br />
+              {user?.lastName}
             </div>
           </div>
+
           <div
             tabindex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-sm z-1 w-50 right-1 shadow text-[10px]"
@@ -37,17 +42,23 @@ export default function NavigationUserStatus() {
         </div>
       ) : (
         <div className="dropdown">
-          <div tabindex="0" role="button" className="btn btn-ghost btn-circle">
-            <div id="userMessage" className="flex flex-col">
-              <div className="flex place-content-center">
-                <UserIcon
-                  width="20"
-                  height="20"
-                  innersize="30"
-                  colors={{ border: "#aaaaff", icon: "#aaaaff" }}
-                />
-              </div>
-              <div className="text-[8px] text-[#aaaaff]">No Login</div>
+          <div
+            tabindex="0"
+            id="userMessage"
+            className="flex flex-row hover:bg-[#ddddff] pb-1 px-1"
+          >
+            <div className="flex place-content-center mr-1">
+              <UserIcon
+                width="20"
+                height="20"
+                innersize="30"
+                colors={{ border: "#aaaaff", icon: "#aaaaff" }}
+              />
+            </div>
+            <div className="text-[8px] text-[#aaaaff] text-left leading-[10px]">
+              No
+              <br />
+              Login
             </div>
           </div>
           <div

@@ -1,5 +1,7 @@
 const originalFetch = window.fetch;
 const authenticationServiceURL = import.meta.env.VITE_IPWA_API_URL;
+const interviewServiceURL = import.meta.env.VITE_IPWA_API_URL;
+const requestServiceURL = import.meta.env.VITE_IPWA_API_URL;
 
 if (!authenticationServiceURL) {
   console.error("No authentication service set");
@@ -31,4 +33,4 @@ window.fetch = async (url, options, ...rest) => {
   return res;
 };
 
-export { authenticationServiceURL };
+export { authenticationServiceURL, interviewServiceURL, requestServiceURL };

@@ -1,29 +1,19 @@
 import { Link } from "react-router";
 import Logo from "./symbols/Logo";
+import Logo2 from "@/assets/Logo_2.svg";
 
 export default function NavigationLogo() {
   return (
     <div id="NavbarLogo">
       <Link to="/">
         <div className="flex">
-          <div>
-            <Logo
-              colors={{
-                I: "#7799ff",
-                P: "#99ccff",
-                W: "#0000ff",
-                A: "#7799ff",
-              }}
-              width="30"
-              height="30"
-            />
+          <div className="ml-2">
+            <img src={Logo2} alt="Logo" width="30px" />
           </div>
-          <div className="flex items-center text-left text-[10px] font-bold font-mono text-indigo-600 ml-2 mr-10 leading-2.5">
-            Interner
+          <div className="flex items-center text-left text-[10px] font-bold font-mono text-cyan-600 ml-2 mr-10 leading-2.5">
+            Kitteltaschen
             <br />
-            Pflegewissen
-            <br />
-            Assistent
+            Mentor
           </div>
         </div>
       </Link>

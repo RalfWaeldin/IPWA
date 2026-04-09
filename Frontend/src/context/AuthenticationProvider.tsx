@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { useState, useEffect } from "react";
+import { use, useState, useEffect, createContext } from "react";
 import { AuthenticationContext } from ".";
 
 import { login, me, logout, register } from "@/data";
@@ -58,3 +58,10 @@ const AuthenticationProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export default AuthenticationProvider;
+
+export const useAuthentication = (): AuthenticationContextType => {
+  const context = use(AuthenticationContext);
+  if (!context)
+    throw new Error("useAuthentication must be used within an AuthProvider");
+  return context;
+};

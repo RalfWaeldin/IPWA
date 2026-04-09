@@ -3,6 +3,6 @@ import { interviewInput } from "#controllers";
 
 const agentRouter = Router();
 
-agentRouter.post("/", interviewInput);
+agentRouter.post("/interview", interviewInput);
 
 export default agentRouter;

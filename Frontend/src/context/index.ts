@@ -1,14 +1,49 @@
-import { createContext, use } from "react";
-import AuthenticationProvider from "./AuthenticationProvider";
+import { use, createContext } from "react";
+import AuthenticationProvider, {
+  useAuthentication,
+} from "./AuthenticationProvider";
+import InterviewAgentProvider, {
+  useInterviewAgentContext,
+} from "./InterviewAgentProvider";
+import InterviewDbProvider, {
+  useInterviewDbContext,
+} from "./InterviewDbProvider";
+import RequestDbProvider, { useRequestDbContext } from "./RequestDbProvider";
 
+// ========================================================
+// Authentication
+// ========================================================
 const AuthenticationContext = createContext<AuthenticationContextType | null>(
   null,
 );
 
-const useAuthentication = (): AuthenticationContextType => {
-  const context = use(AuthenticationContext);
-  if (!context) throw new Error("useAuth must be used within an AuthProvider");
-  return context;
+export { AuthenticationContext, useAuthentication, AuthenticationProvider };
+
+// ========================================================
+// Interview (Agent)
+// ========================================================
+const InterviewAgentContext = createContext<InterviewAgentContextType | null>(
+  null,
+);
+
+export {
+  InterviewAgentContext,
+  useInterviewAgentContext,
+  InterviewAgentProvider,
 };
 
-export { AuthenticationContext, useAuthentication, AuthenticationProvider };
+// ========================================================
+// Interview (Db)
+// ========================================================
+
+const InterviewDbContext = createContext<InterviewDbContextType | null>(null);
+
+export { InterviewDbContext, useInterviewDbContext, InterviewDbProvider };
+
+// ========================================================
+// Request (Db)
+// ========================================================
+
+const RequestDbContext = createContext<RequestDbContextType | null>(null);
+
+export { RequestDbContext, RequestDbProvider, useRequestDbContext };
