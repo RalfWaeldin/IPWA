@@ -1,4 +1,10 @@
-import { userSchema, postSchema, signInSchema, loginSchema } from "#schemas";
+import {
+  userSchema,
+  postSchema,
+  signInSchema,
+  loginSchema,
+  keyValuePairSchema,
+} from "#schemas";
 import { z } from "zod/v4";
 
 declare global {
@@ -12,6 +18,8 @@ declare global {
     | PostRequestBody
     | SignInRequestBody
     | LoginRequestBody;
+
+  type KeyValuePair = z.infer<typeof keyValuePairSchema>;
 }
 
 export {};

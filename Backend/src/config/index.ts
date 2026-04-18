@@ -9,6 +9,18 @@ const envSchema = z.object({
   ROUTER_TRACING_DISABLED: z.coerce.boolean().default(true),
   INTERVIEW_MAINMODEL: z.string().default("google/gemini-3-flash-preview"),
   CLASSIFICATION_MAINMODEL: z.string().default("google/gemini-3-flash-preview"),
+  CATEGORYTRANSLATOR_MAINMODEL: z
+    .string()
+    .default("google/gemini-3-flash-preview"),
+  INTERVIEWTRANSLATOR_MAINMODEL: z
+    .string()
+    .default("google/gemini-3-flash-preview"),
+  FRAGETRANSLATION_MAINMODEL: z
+    .string()
+    .default("google/gemini-3-flash-preview"),
+  FRAGECATEGORIZE_MAINMODEL: z
+    .string()
+    .default("google/gemini-3-flash-preview"),
   ACCESS_JWT_SECRET: z.string(),
   SALT_ROUNDS: z.string().default("10"),
   LOGLEVEL: z.coerce.number().default(0),
@@ -35,6 +47,10 @@ export const {
   ROUTER_TRACING_DISABLED,
   INTERVIEW_MAINMODEL,
   CLASSIFICATION_MAINMODEL,
+  FRAGETRANSLATION_MAINMODEL,
+  FRAGECATEGORIZE_MAINMODEL,
+  CATEGORYTRANSLATOR_MAINMODEL,
+  INTERVIEWTRANSLATOR_MAINMODEL,
   ACCESS_JWT_SECRET,
   SALT_ROUNDS,
   LOGLEVEL,

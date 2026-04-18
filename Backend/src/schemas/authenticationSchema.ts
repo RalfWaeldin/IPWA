@@ -24,6 +24,11 @@ export const loginSchema = loginUserSchema.omit({
   lastName: true,
 });
 
+export const keyValuePairSchema = z.object({
+  key: z.string(),
+  value: z.string(),
+});
+
 export const registerSchema = z
   .strictObject({
     email: emailSchema,
