@@ -37,12 +37,12 @@ export default function ProblemLabel(props: LabelProperties) {
         <div
           id={identifier}
           key={identifier}
-          className="flex flex-row px-2 w-fit rounded-xl border-1 border-cyan-200  bg-cyan-700 shadow"
+          className="flex flex-row px-2 w-fit rounded-xl border-1 border-cyan-400  bg-cyan-700 shadow"
         >
           <div
             key={"labeltext_" + props.identifier}
             id={"labeltext_" + props.identifier}
-            className="text-[12px] sm:text-[14px] text-[#ffffff] text-nowrap px-1"
+            className="text-[10px] sm:text-[14px] text-[#ffffff] text-nowrap px-1"
           >
             {labeltext}
           </div>

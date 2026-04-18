@@ -2,6 +2,7 @@ import { useAuthentication } from "@/context";
 import { useState, type SubmitEventHandler } from "react";
 import { Navigate } from "react-router";
 import { toast } from "react-toastify";
+import { InfoBox } from "@/components/objects/Infobox";
 
 type LoginFormState = {
   email: string;
@@ -40,23 +41,33 @@ const Page_Login = () => {
   if (signedIn) return <Navigate to="/" />;
 
   return (
-    <main className="flex content-center items-center p-2 mx-auto sm:w-full flex-col w-full h-screen">
-      <div className="h-fit w-80 mt-12 bg-white">
-        <div className="h-5.5 pl-2 bg-blue-600 text-white text-[12px]">
+    <main
+      id="login_main"
+      className="flex flex-col items-center w-full sm:w-[800px] mt-45 sm:mt-70 sm:mb-140 overflow-hidden z-2"
+    >
+      <InfoBox
+        infotext="Einige Funktionen benötigen ausreichende Berechtigungen. Bitte loggen
+          Sie sich ein."
+      />
+
+      <div
+        id="login_form_container"
+        className="flex flex-col h-fit w-[65%] sm:w-[65%] sm:ml-10 bg-cyan-200 rounded-2xl ml-4"
+      >
+        <div className="h-7 w-full pl-2 pt-1 bg-cyan-700 rounded-t-2xl text-white text-[12px]">
           Login
         </div>
-        <div className="p-2 w-full">
-          <div className="text-[12px]">
-            Einige Funktionen benötigen ausreichende Berechtigungen. Bitte
-            loggen Sie sich ein.
-          </div>
-          <form className="bg-gray-300 mt-5 w-full" onSubmit={handleSubmit}>
-            <div className="w-full max-w-xs p-2">
-              <div className="flex flex-col">
+        <div className="flex w-full px-2 pb-2">
+          <form
+            className="flex flex-col bg-cyan-50 mt-2 w-full rounded-b-xl"
+            onSubmit={handleSubmit}
+          >
+            <div className="flex flex-col w-full p-2">
+              <div className="flex w-full flex-col">
                 <label
                   id="emaillabel"
                   htmlFor="email"
-                  className="label text-[12px] text-gray-100"
+                  className="label text-[12px] text-cyan-700  mb-1"
                 >
                   <span className="label-text">E-Mail:</span>
                 </label>
@@ -65,7 +76,7 @@ const Page_Login = () => {
                   name="email"
                   type="email"
                   onChange={handleChange}
-                  className="bg-white text-[12px]"
+                  className="bg-white w-full text-[12px] border-2 border-t-cyan-200 border-r-cyan-500 border-b-cyan-600 border-l-cyan-300 p-1 mb-2"
                   placeholder="Ihr Email"
                 />
               </div>
@@ -73,7 +84,7 @@ const Page_Login = () => {
                 <label
                   id="passwordlabel"
                   htmlFor="password"
-                  className="text-[12px] text-gray-100"
+                  className="text-[12px] text-cyan-700 mb-1"
                 >
                   Password:
                 </label>
@@ -83,14 +94,14 @@ const Page_Login = () => {
                   onChange={handleChange}
                   type="password"
                   placeholder="Password"
-                  className="bg-white text-[12px] w-full"
+                  className="bg-white text-[12px] w-full border-2 border-t-cyan-200 border-r-cyan-500 border-b-cyan-600 border-l-cyan-300 p-1 "
                 />
               </div>
               <div className="flex flex-col mt-5">
                 <button
                   id="submit"
                   type="submit"
-                  className="btn btn-block btn-sm text-[12px]"
+                  className="btn btn-block btn-sm text-[12px] border-cyan-700 bg-cyan-200"
                   disabled={loading}
                 >
                   Log in

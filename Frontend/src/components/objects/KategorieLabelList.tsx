@@ -17,7 +17,6 @@ type KategorieProperties = {
 const KategorieLabelList = (props: KategorieProperties) => {
   const collection = props.collection ? props.collection : [];
   const handleRemove = props.handleRemove;
-  console.log("KategorieCollection", collection);
 
   return collection.length > 0 ? (
     collection.map((item) => (
@@ -32,7 +31,11 @@ const KategorieLabelList = (props: KategorieProperties) => {
       </div>
     ))
   ) : (
-    <span>Keine Auswahl</span>
+    <div className="flex flex-row items-start">
+      <span className="font-extralight text-[12px] sm:text-[14px] text-cyan-700">
+        Keine Kategorien verfügbar
+      </span>
+    </div>
   );
 };
 

@@ -1,4 +1,5 @@
 import type { RequestHandler } from "express";
+import mongoose from "mongoose";
 import {
   Interviews,
   Problems,
@@ -11,8 +12,19 @@ import {
 import { writeLogFileEntry } from "#utils";
 import type { ClientSession } from "mongoose";
 import { record, string } from "zod";
+import type { ErrorObject } from "openai/resources";
+import { SystemError } from "@openai/agents";
 
 type SolutionPhrases = [string] | [];
+
+type InterviewAnswerType = {
+  interviewtext: keyValuePair;
+  cardtext: keyValuePair;
+  problems: keyValuePair[];
+  solutions: keyValuePair[];
+};
+
+type InterviewAnswerListType = [InterviewAnswerType];
 
 type SolutionElement = {
   solutionIdentifier: string;
@@ -46,6 +58,10 @@ type keyValuePair = {
   key: string;
   value: string;
 };
+
+// ===================================================================
+// Interview Save
+// ===================================================================
 
 const insertInterviewRecord = async function (
   interview: string,
@@ -363,6 +379,8 @@ export const interviewSave: RequestHandler = async (req, res, next) => {
   //next();
 };
 
+// ===================================================================
+
 export const solutionList: RequestHandler = async (req, res) => {
   writeLogFileEntry("Enter solutionList", res, 2, "dbController/solutionList");
 
@@ -373,7 +391,7 @@ export const solutionList: RequestHandler = async (req, res) => {
       throw new Error("Solutions not found", { cause: { status: 404 } });
 
     writeLogFileEntry(
-      `Solution List found: ${solutions}`,
+      `Solution List found!`,
       res,
       3,
       "dbController/solutionList",
@@ -412,7 +430,7 @@ export const problemList: RequestHandler = async (req, res) => {
       throw new Error("Problems not found", { cause: { status: 404 } });
 
     writeLogFileEntry(
-      `Solution List found: ${problems}`,
+      `Solution List found!`,
       res,
       3,
       "dbController/solutionList",
@@ -441,3 +459,255 @@ export const problemList: RequestHandler = async (req, res) => {
     res.json(output);
   } catch (error) {}
 };
+
+// ===================================================================
+// Interview Search
+// ===================================================================
+
+const interviewRelationsByProblemId = async (problemObjectId: string) => {
+  const problemrelations = await InterviewProblems.find({
+    ProblemObjectId: problemObjectId,
+  });
+
+  return problemrelations;
+};
+
+const interviewRelationsBySolutionId = async (solutionObjectId: string) => {
+  const solutionrelations = await InterviewSolutions.find({
+    SolutionObjectId: solutionObjectId,
+  });
+
+  return solutionrelations;
+};
+
+const interviewRelationsByInterviewId = async (
+  interviewObjectId: string,
+  relationType: string,
+) => {
+  console.log("interviewObjectId", interviewObjectId);
+  if (relationType == "problemRelation") {
+    console.log("Get Problem Relation", relationType);
+    const problemrelations = await InterviewProblems.find({
+      InterviewObjectId: interviewObjectId,
+    });
+
+    return problemrelations;
+  } else {
+    console.log("Get Solution Relation", relationType);
+    const solutionrelations = await InterviewSolutions.find({
+      InterviewObjectId: interviewObjectId,
+    });
+
+    return solutionrelations;
+  }
+};
+
+const interviewByInterviewId = async (interviewId: string) => {
+  try {
+    const objectId = new mongoose.Types.ObjectId(interviewId);
+    const interview = await Interviews.findOne({
+      _id: objectId,
+    });
+
+    return interview;
+  } catch (error) {
+    return null;
+  }
+};
+
+const getInterviewOutput = async (interviewIdentifier: string) => {
+  const foundInterview = await interviewByInterviewId(interviewIdentifier);
+
+  if (foundInterview) {
+    const interviewfulltext = {
+      key: interviewIdentifier,
+      value: foundInterview.interview,
+    };
+
+    const interviewshorttext = {
+      key: interviewIdentifier,
+      value: foundInterview.problem,
+    };
+
+    // get assigned problems
+    const assignedProblems = await interviewRelationsByInterviewId(
+      interviewIdentifier,
+      "problemRelation",
+    );
+
+    const problemsArray = [];
+
+    for await (const assignedProblem of assignedProblems) {
+      const assignedProblemId = assignedProblem.ProblemObjectId;
+      const assignedProblemObjectId = new mongoose.Types.ObjectId(
+        assignedProblemId,
+      );
+
+      const problemRecord = await Problems.findOne({
+        _id: assignedProblemObjectId,
+      });
+      console.log("problemRecord:", problemRecord);
+
+      const problemOutputItem = {
+        key: assignedProblemId,
+        value: problemRecord?.problem,
+      };
+      console.log("problemOutputItem:", problemOutputItem);
+      problemsArray.push(problemOutputItem);
+    }
+
+    // get assigned solutions
+
+    const assignedSolutions = await interviewRelationsByInterviewId(
+      interviewIdentifier,
+      "solutionRelation",
+    );
+
+    const solutionsArray = [];
+
+    for await (const assignedSolution of assignedSolutions) {
+      const assignedSolutionId = assignedSolution.SolutionObjectId;
+      const assignedSolutionObjectId = new mongoose.Types.ObjectId(
+        assignedSolutionId,
+      );
+
+      const solutionRecord = await Solutions.findOne({
+        _id: assignedSolutionObjectId,
+      });
+
+      console.log("solutionRecord:", solutionRecord);
+
+      const solutionOutputItem = {
+        key: assignedSolutionId,
+        value: solutionRecord?.solutionIdentifier,
+      };
+      console.log("solutionOutputItem:", solutionOutputItem);
+      solutionsArray.push(solutionOutputItem);
+    }
+
+    const interviewresult: InterviewAnswerType = {
+      interviewtext: interviewfulltext,
+      cardtext: interviewshorttext,
+      problems: problemsArray,
+      solutions: solutionsArray,
+    };
+
+    return interviewresult;
+  }
+};
+
+// ===================================================================
+
+export const interviewList: RequestHandler = async (req, res) => {
+  writeLogFileEntry("Enter problemList", res, 2, "dbController/interviewList");
+  const { problemids, solutionids } = req.body;
+
+  try {
+    const interviewList: InterviewAnswerListType | [] = [];
+
+    if (problemids && problemids.length > 0) {
+      writeLogFileEntry(
+        `Problem Ids: ${problemids}`,
+        res,
+        3,
+        "dbController/interviewList",
+      );
+      for await (const problemId of problemids) {
+        const interviewRelations =
+          await interviewRelationsByProblemId(problemId);
+
+        for await (const interviewRelation of interviewRelations) {
+          const interviewIdentifier = interviewRelation.InterviewObjectId;
+          writeLogFileEntry(
+            `problem relation interviewId: ${problemId} - ${interviewIdentifier} `,
+            res,
+            3,
+            "dbController/interviewList",
+          );
+
+          if (interviewIdentifier) {
+            if (
+              !interviewList.find(
+                (entry) => entry.interviewtext.key == interviewIdentifier,
+              )
+            ) {
+              const interviewresult =
+                await getInterviewOutput(interviewIdentifier);
+
+              if (interviewresult) {
+                interviewList.push(interviewresult);
+              }
+            }
+          }
+        }
+      }
+    } else {
+      writeLogFileEntry(
+        `No problem ids `,
+        res,
+        3,
+        "dbController/interviewList",
+      );
+    }
+
+    if (solutionids && solutionids.length > 0) {
+      writeLogFileEntry(
+        `Solution Ids: ${solutionids}`,
+        res,
+        3,
+        "dbController/interviewList",
+      );
+      for await (const solutionId of solutionids) {
+        const interviewRelations =
+          await interviewRelationsBySolutionId(solutionId);
+
+        for await (const interviewRelation of interviewRelations) {
+          const interviewIdentifier = interviewRelation.InterviewObjectId;
+          writeLogFileEntry(
+            `solution relation interviewId: ${solutionId} - ${interviewIdentifier} `,
+            res,
+            3,
+            "dbController/interviewList",
+          );
+          if (interviewIdentifier) {
+            if (
+              !interviewList.find(
+                (entry) => entry.interviewtext.key == interviewIdentifier,
+              )
+            ) {
+              const interviewresult =
+                await getInterviewOutput(interviewIdentifier);
+
+              if (interviewresult) {
+                writeLogFileEntry(
+                  `push interviewresult: ${interviewresult} `,
+                  res,
+                  3,
+                  "dbController/interviewList",
+                );
+                interviewList.push(interviewresult);
+              }
+            }
+          }
+        }
+      }
+    } else {
+      writeLogFileEntry(
+        `No solution ids `,
+        res,
+        3,
+        "dbController/interviewList",
+      );
+    }
+    writeLogFileEntry(
+      `output interview list: ${JSON.stringify(interviewList)} `,
+      res,
+      3,
+      "dbController/interviewList",
+    );
+
+    res.json(interviewList);
+  } catch (error) {}
+};
+
+// ===================================================================

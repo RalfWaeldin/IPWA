@@ -7,24 +7,28 @@ import {
 } from "@/context";
 import Header_Main from "@/components/Header_Main";
 import Footer_Main from "@/components/Footer_Main";
+import Kittel_BG from "@/components/objects/KittelBG";
+import ThinkingLayer from "@/components/objects/ThinkingLayer";
+
 const MainLayout = () => (
   <AuthenticationProvider>
-    <div
-      id="main_layout_container"
-      className="flex flex-col items-center bg-[#dffafa] h-full"
-    >
-      <div className="w-full sm:w-[800px]">
+    <InterviewAgentProvider>
+      <div
+        id="main_layout_container"
+        className="flex flex-col w-full items-center bg-[#dffafa] h-full"
+      >
         <Header_Main />
-        <InterviewAgentProvider>
-          <InterviewDbProvider>
-            <RequestDbProvider>
-              <Outlet />
-            </RequestDbProvider>
-          </InterviewDbProvider>
-        </InterviewAgentProvider>
+
+        <Kittel_BG />
+        <InterviewDbProvider>
+          <RequestDbProvider>
+            <Outlet />
+          </RequestDbProvider>
+        </InterviewDbProvider>
+
         <Footer_Main />
       </div>
-    </div>
+    </InterviewAgentProvider>
   </AuthenticationProvider>
 );
 
