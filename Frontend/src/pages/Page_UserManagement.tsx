@@ -57,19 +57,26 @@ export default function Page_UserManagement() {
     }
   };
   return (
-    <main className="flex content-center items-center p-2 mx-auto sm:w-full flex-col w-full h-screen">
-      <div className="h-fit w-10/12 bg-white">
-        <div className="h-5.5 pl-2 bg-blue-600 text-white text-[12px]">
+    <main
+      id="administration_main"
+      className="flex flex-col items-center w-full sm:w-[800px] mt-8 sm:mt-40 sm:mb-170 overflow-hidden z-2"
+    >
+      {" "}
+      <div className="h-fit w-10/12 bg-cyan-200  rounded-2xl mb-5">
+        <div className="h-7 pl-2 pt-1 bg-cyan-700 text-white text-[12px]  rounded-t-2xl">
           Register User
         </div>
         <div className="p-2 w-full">
-          <form className="bg-gray-300 w-full" onSubmit={handleSubmit}>
+          <form
+            className="bg-cyan-50 rounded-b-xl w-full"
+            onSubmit={handleSubmit}
+          >
             <div className="grid grid-cols-1 sm:grid-cols-2  gap-3 w-full p-2">
               <div className="flex flex-col">
                 <label
                   id="emaillabel"
                   htmlFor="email"
-                  className="label text-[12px] text-gray-100"
+                  className="label text-[12px] text-cyan-700 mb-1"
                 >
                   <span className="label-text">E-Mail:</span>
                 </label>
@@ -78,7 +85,7 @@ export default function Page_UserManagement() {
                   name="email"
                   type="email"
                   onChange={handleChange}
-                  className="bg-white text-[12px]"
+                  className="bg-white text-[12px] border-2 border-t-cyan-200 border-r-cyan-500 border-b-cyan-600 border-l-cyan-300 p-1"
                   placeholder="Ihr Email"
                 />
               </div>
@@ -86,11 +93,15 @@ export default function Page_UserManagement() {
                 <label
                   id="rolelabel"
                   htmlFor="role"
-                  className="label text-[12px] text-gray-100"
+                  className="label text-[12px] text-cyan-700 mb-1"
                 >
                   <span className="label-text">Rolle:</span>
                 </label>
-                <select id="role" name="role" className="bg-white text-[12px]">
+                <select
+                  id="role"
+                  name="role"
+                  className="bg-white text-[12px] border-2 border-t-cyan-200 border-r-cyan-500 border-b-cyan-600 border-l-cyan-300 p-1"
+                >
                   <option value="root">Root</option>
                   <option value="editor">Erfassung</option>
                 </select>
@@ -99,7 +110,7 @@ export default function Page_UserManagement() {
                 <label
                   id="vornamelabel"
                   htmlFor="firstName"
-                  className="label text-[12px] text-gray-100"
+                  className="label text-[12px] text-cyan-700 mb-1"
                 >
                   <span className="label-text">Vorname:</span>
                 </label>
@@ -108,7 +119,7 @@ export default function Page_UserManagement() {
                   name="firstName"
                   type="text"
                   onChange={handleChange}
-                  className="bg-white text-[12px]"
+                  className="bg-white text-[12px] border-2 border-t-cyan-200 border-r-cyan-500 border-b-cyan-600 border-l-cyan-300 p-1"
                   placeholder="Vorname"
                 />
               </div>
@@ -116,7 +127,7 @@ export default function Page_UserManagement() {
                 <label
                   id="nachnamelabel"
                   htmlFor="lastName"
-                  className="label text-[12px] text-gray-100"
+                  className="label text-[12px] text-cyan-700 mb-1"
                 >
                   <span className="label-text">Nachname:</span>
                 </label>
@@ -125,7 +136,7 @@ export default function Page_UserManagement() {
                   name="lastName"
                   type="text"
                   onChange={handleChange}
-                  className="bg-white text-[12px]"
+                  className="bg-white text-[12px] border-2 border-t-cyan-200 border-r-cyan-500 border-b-cyan-600 border-l-cyan-300 p-1"
                   placeholder="Nachname"
                 />
               </div>
@@ -134,7 +145,7 @@ export default function Page_UserManagement() {
                 <label
                   id="passwordlabel"
                   htmlFor="password"
-                  className="text-[12px] text-gray-100"
+                  className="text-[12px] text-cyan-700 mb-1"
                 >
                   Password:
                 </label>
@@ -144,14 +155,14 @@ export default function Page_UserManagement() {
                   type="password"
                   onChange={handleChange}
                   placeholder="Password"
-                  className="bg-white text-[12px] w-full"
+                  className="bg-white text-[12px] w-full border-2 border-t-cyan-200 border-r-cyan-500 border-b-cyan-600 border-l-cyan-300 p-1"
                 />
               </div>
               <div className="flex flex-col">
                 <label
                   id="confirmpasswordlabel"
                   htmlFor="confirmPassword"
-                  className="text-[12px] text-gray-100"
+                  className="text-[12px] text-cyan-700 mb-1"
                 >
                   Password wiederholen:
                 </label>
@@ -161,15 +172,15 @@ export default function Page_UserManagement() {
                   type="password"
                   onChange={handleChange}
                   placeholder="Password wiederholen"
-                  className="bg-white text-[12px] w-full"
+                  className="bg-white text-[12px] w-full border-2 border-t-cyan-200 border-r-cyan-500 border-b-cyan-600 border-l-cyan-300 p-1"
                 />
               </div>
               <div> </div>
-              <div className="flex flex-col mt-5">
+              <div className="flex flex-col mt-1">
                 <button
                   id="submit"
                   type="submit"
-                  className="btn btn-block btn-sm text-[12px]"
+                  className="btn btn-block btn-sm text-[12px] border-cyan-700 bg-cyan-200 shadow-2xs"
                   disabled={loading}
                 >
                   Erzeugen

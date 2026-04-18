@@ -7,7 +7,7 @@ export default function DesktopNavigationBar() {
     <div className="hidden sm:flex pt-2 gap-4 w-full place-content-between">
       <NavigationLogo />
       <NavigationLinks />
-      <NavigationUserStatus />
+      <NavigationUserStatus display="Modal" />
     </div>
   );
 }

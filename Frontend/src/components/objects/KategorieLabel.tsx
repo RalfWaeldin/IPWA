@@ -11,6 +11,7 @@ type KategorieProperties = {
 export default function KategorieLabel(props: KategorieProperties) {
   const identifier: string = props.identifier ? props.identifier : "label";
   const isProblem = props.istProblem == "true" ? true : false;
+
   return isProblem ? (
     <ProblemLabel
       label={props.label}

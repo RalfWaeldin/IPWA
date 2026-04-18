@@ -9,12 +9,14 @@ import {
   Page_UserManagement,
   Page_Fragen,
 } from "./pages";
+import ScrollToTop from "./utils/scrollToTop";
 import Footer_Main from "./components/Footer_Main";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route element={<MainLayout />}>
             <Route index element={<Page_Home />} />
