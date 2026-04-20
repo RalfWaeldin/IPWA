@@ -17,6 +17,7 @@ import { OpenRouterClient } from "#clients";
 
 const app = express();
 
+app.use(express.json());
 app.use(
   cors({
     origin: CLIENT_BASE_URL,
