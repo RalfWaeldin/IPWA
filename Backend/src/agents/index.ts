@@ -1,4 +1,5 @@
 import { z } from "zod";
+import * as z4 from "zod/v4";
 import { Agent } from "@openai/agents";
 import {
   INTERVIEW_MAINMODEL,
@@ -207,6 +208,55 @@ function getTranslatedInterviewsAgent() {
 }
 
 //===============================================================
+// Text To Speech Agent
+//===============================================================
+// Output definitions
+
+const ttsOutput = z.object({ stream: z.instanceof(Buffer) });
+
+function getTTSAgent() {
+  return new Agent({
+    name: "Text to speech Handler",
+    model: "gpt-4o-mini-tts-2025-12-15",
+    outputType: ttsOutput,
+    instructions: `Sprich ruhig und professionell. `,
+  });
+}
+
+/*
+writeLogFileEntry(
+      `Create Speech`,
+      res,
+      3,
+      "agentController/speakinterview",
+    );
+    const mp3 = await openai.audio.speech.create({
+      model: "gpt-4o-mini-tts-2025-12-15",
+      voice: voice,
+      input: text,
+      // Optional: Erweiterte Steuerung für dieses Modell
+      instructions: "Sprich ruhig und professionell.",
+      response_format: "mp3",
+    });
+
+    writeLogFileEntry(`MP3 created`, res, 3, "agentController/speakinterview");
+
+    // Wandle die Antwort in einen Buffer um und sende ihn
+    const buffer = Buffer.from(await mp3.arrayBuffer());
+
+    writeLogFileEntry(
+      `Buffer created`,
+      res,
+      3,
+      "agentController/speakinterview",
+    );
+
+    res.set("Content-Type", "audio/mpeg");
+    res.send(buffer);
+
+*/
+
+//===============================================================
 // Agent exports
 //===============================================================
 export const InterviewAgent = getInterviewAgent();
@@ -215,3 +265,4 @@ export const FrageTranslationAgent = getFrageTranslationAgent();
 export const FrageCategorizeAgent = getFrageCategoriesAgent();
 export const CategoryTranslatorAgent = getTranslatedCategoriesAgent();
 export const InterviewTranslatorAgent = getTranslatedInterviewsAgent();
+export const TTSAgent = getTTSAgent();

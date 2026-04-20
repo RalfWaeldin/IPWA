@@ -73,4 +73,30 @@ const translateInterview = async (
   return data;
 };
 
-export { solutionList, problemList, interviewList, translateInterview };
+const createSound = async (
+  text: string,
+  voice: string,
+): Promise<Buffer<ArrayBuffer>> => {
+  const fetchpath = `${requestServiceURL}/requests/tts`;
+  const res = await fetch(fetchpath, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify({ text, voice }),
+  });
+  if (!res.ok) throw new Error(`${res.status}. Get Problem List went wrong!`);
+
+  const data = (await res.json()) as Buffer<ArrayBuffer>;
+
+  return data;
+};
+
+export {
+  solutionList,
+  problemList,
+  interviewList,
+  translateInterview,
+  createSound,
+};

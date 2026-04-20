@@ -70,6 +70,8 @@ declare global {
     }: InterviewAnswer) => Promise<InterviewsDataType>;
     thinking: boolean;
     setThinking: Dispatch<SetStateAction<boolean>>;
+    isPlaying: boolean;
+    setIsPlaying: Dispatch<SetStateAction<boolean>>;
   };
 
   // =======================================================
@@ -110,9 +112,20 @@ declare global {
     solutions: keyValuePair[];
   };
 
+  type LanguageTripleDataType = {
+    language: string;
+    icon: string;
+    iso: string;
+  };
+
   type TranslationRequestType = {
     interviewid: string;
     language: string;
+  };
+
+  type TTSRequestType = {
+    text: string;
+    voice: string;
   };
 
   type RequestDbContextType = {
@@ -120,7 +133,11 @@ declare global {
     problemColl: keyValuePair[];
     showInterviewDetails: boolean;
     displayData: RequestAnswerListDataType | [];
+    selectedLanguage: LanguageTripleDataType;
     chosenInterview: SingleInterviewDataType | {};
+    setSelectedLanguage: React.Dispatch<
+      React.SetStateAction<LanguageTripleDataType>
+    >;
     setChosenInterview: React.Dispatch<
       React.SetStateAction<SingleInterviewDataType>
     >;
@@ -138,6 +155,10 @@ declare global {
       interviewid,
       language,
     }: TranslationRequestType) => Promise<SingleInterviewDataType>;
+    getInterviewSound: ({
+      text,
+      voice,
+    }: TTSRequestType) => Promise<Buffer<ArrayBuffer>>;
   };
 
   type keyValuePair = {

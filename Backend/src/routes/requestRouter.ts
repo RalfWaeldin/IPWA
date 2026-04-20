@@ -6,6 +6,7 @@ import {
   beantworteFrage,
   languageinterviewlist,
   translateinterview,
+  speakinterview,
 } from "#controllers";
 
 const requestRouter = Router();
@@ -16,5 +17,6 @@ requestRouter.post("/interviews", interviewList);
 requestRouter.post("/fragen", beantworteFrage);
 requestRouter.post("/languageinterview", languageinterviewlist);
 requestRouter.post("/translateinterview", translateinterview);
+requestRouter.post("/tts", speakinterview);
 
 export default requestRouter;
