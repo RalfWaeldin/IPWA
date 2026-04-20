@@ -5,7 +5,9 @@ import {
   solutionList,
   interviewList,
   translateInterview,
+  createSound,
 } from "@/data";
+import Deutsch from "@/assets/Deutsch.png";
 
 const RequestDbProvider = ({ children }: { children: ReactNode }) => {
   const [problemColl, setProblemColl] = useState<Array<keyValuePair> | []>([]);
@@ -17,6 +19,13 @@ const RequestDbProvider = ({ children }: { children: ReactNode }) => {
   const [displayData, setDisplayData] = useState<
     RequestAnswerListDataType | []
   >([]);
+
+  const [selectedLanguage, setSelectedLanguage] =
+    useState<LanguageTripleDataType>({
+      language: "Deutsch",
+      icon: Deutsch,
+      iso: "de-DE",
+    });
 
   const [chosenInterview, setChosenInterview] = useState<
     SingleInterviewDataType | {}
@@ -65,12 +74,20 @@ const RequestDbProvider = ({ children }: { children: ReactNode }) => {
     );
     return result;
   };
+
+  const getInterviewSound = async ({ text, voice }: TTSRequestType) => {
+    const buffer: Buffer<ArrayBuffer> = await createSound(text, voice);
+    return buffer;
+  };
+
   const value: RequestDbContextType = {
     solutionColl,
     problemColl,
     showInterviewDetails,
     displayData,
     chosenInterview,
+    selectedLanguage,
+    setSelectedLanguage,
     setChosenInterview,
     setDisplayData,
     setShowInterviewDetails,
@@ -78,6 +95,7 @@ const RequestDbProvider = ({ children }: { children: ReactNode }) => {
     handleGetProblemList,
     getInterviewSelection,
     getTranslatedInterview,
+    getInterviewSound,
   };
 
   return <RequestDbContext value={value}>{children}</RequestDbContext>;

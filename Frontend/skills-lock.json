@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "openrouter-agent-migration": {
+      "source": "OpenRouterTeam/skills",
+      "sourceType": "github",
+      "computedHash": "822e7679855def4fc395ed63f0a7b5aab174dbb08fdbe6768bd365e85298595a"
+    }
+  }
+}

@@ -42,6 +42,21 @@ export default function Page_Impressum() {
             Alle Daten werden anonymisiert, bevor sie abgespeichert werden!
           </div>
         </div>
+        <div className=" bg-cyan-50 shadow-2xl rounded-2xl p-2">
+          <div className="font-bold">Images</div>
+          <div>
+            Alle verwendeten Bilder und Grafiken wurden entweder mit Hilfe von
+            KI erzeugt und lokal nachbearbeitet
+            <br />
+            oder wurden von{" "}
+            <a href="https://icons8.com/" target="_blank">
+              <span className="font-bold">Icons 8</span>
+            </a>{" "}
+            frei zur Verfügung gestellt
+            <br />
+            (Flaggen symbole auf der Interview Detail ansicht zur Sprachwahl).
+          </div>
+        </div>
       </div>
     </main>
   );

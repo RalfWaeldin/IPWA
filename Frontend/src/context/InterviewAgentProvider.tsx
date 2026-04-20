@@ -7,6 +7,7 @@ import { interviewInput, customerAnswer, languageInterviewSets } from "@/data";
 const InterviewAgentProvider = ({ children }: { children: ReactNode }) => {
   const [checkSession, setCheckSession] = useState(true);
   const [thinking, setThinking] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handleInterviewErfassung = async ({ prompt }: InterviewData) => {
     const result = await interviewInput({ prompt });
@@ -38,6 +39,8 @@ const InterviewAgentProvider = ({ children }: { children: ReactNode }) => {
     handleGetInterviewSets,
     thinking,
     setThinking,
+    isPlaying,
+    setIsPlaying,
   };
 
   useEffect(() => {
